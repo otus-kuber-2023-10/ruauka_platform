@@ -1,0 +1,10 @@
+// general
+kubectl cluster-info - проверка подключения к кластеру
+minikube dashboard - ui миникуба
+
+// pod
+kubectl apply -f web-pod.yaml - применение манифеста пода
+kubectl get pods - посмотреть все поды
+kubectl describe pod web - описание событий и атрибутов пода
+
+
