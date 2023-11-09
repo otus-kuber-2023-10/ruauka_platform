@@ -4,11 +4,13 @@ minikube dashboard - ui миникуба
 kubectl port-forward --address 0.0.0.0 pod/web 8000:8000 - прокинуть порты на локалку (вместо services)
 
 // pod
-kubectl apply -f web-pod.yaml - применение манифеста пода
+kubectl apply -f web-pod.yaml - применение манифеста pod
 kubectl apply -f web-pod.yaml && kubectl get pods -w - запуск и просмотр в консоле
-kubectl get pods - посмотреть все поды
-kubectl describe pod web - описание событий и атрибутов пода
-kubectl exec -it web --container=web -- sh - провалиться в контейнер
+kubectl get pods - посмотреть все pods
+kubectl describe pod web - описание событий и атрибутов pod
+kubectl exec -it web --container=web -- sh - провалиться в контейнер внутри pod
+kubectl delete pod web - удалить pod
 
-
-
+// ad-hoc
+kubectl run frontend --image=ruauka/frontend:latest --restart=Never - альтернативный способ запуска ресурса (pod здесь)
+kubectl run frontend --image=ruauka/frontend:latest --restart=Never --dry-run -o yaml > frontend-pod.yaml - собрать мнифест не поднимаю pod (dry-run - режим)
